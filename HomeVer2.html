@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<title >NCVS-BKI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+    <!-- <link rel="stylesheet" href="w3.css">-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <!--<link rel="stylesheet" href="font-awesome.min.css">-->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<style>
+    .input{
+        margin-left: 0px;
+        width: 90%;
+        height: 25px;
+	border-radius: 5px;
+    }
+ 
+    .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+//.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+    
+    
+    .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    width: 80%;
+}
+
+
+table {
+    //font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+	
+}
+
+td,th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    //padding-top: 1px;
+    //padding-left:8px;
+	padding:12px;
+}
+th {
+    background-color:#eeeeee;
+
+}
+
+
+
+tr:nth-child(odd) {
+  
+}
+
+    .divfont1 {
+        color: blue;
+    }   
+    
+h3{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    text-align:center;
+}
+
+       
+</style>
+<body onload="alatFire();w3_open()">
+   <p id="cekLewat" style="color:red; text-align:center" ></p>
+   <div id="cekMasuk" >
+
+    
+    <div class="w3-top">
+        <div class="w3-bar w3-green">
+            
+            <a href="#" id="bukaSide" style="width:50px;" class="w3-bar-item w3-button " onclick="w3_open()">&#9776;</a>
+            <a id="tutupSide" style="width:50px;" class="w3-bar-item w3-button " onclick="w3_close()" style="display:none">&#8656; </a>
+            <!--<a id="tutupSide" style="width:50px;" class="w3-bar-item w3-button " onclick="w3_close()" style="display:none">&#11013 </a>-->
+            <!--<a id="tutupSide" style="width:50px;" class="material-icons w3-bar-item w3-button " onclick="w3_close()" style="display:none">arrow_back</a>-->
+
+<!--<a id="tutupSide" style="width:50px;" class="material-icons w3-bar-item w3-button " onclick="w3_close()" style="display:none">fa fa-arrow-left</a>-->
+
+	    <a class="w3-bar-item " ><img src="https://cdn.rawgit.com/wasito/javascript/d394b047/LOGO%20BKI.png" alt="ship" style="width:14px; float:left; "> </a>
+	    <a class="w3-bar-item " >BKI - NCVS Application </a>
+	    <a class="w3-bar-item " ><img src="https://cdn.rawgit.com/wasito/javascript/d394b047/Logo%20Garuda.png" alt="ship" style="width:18px; float:left; "> </a>
+	    <!--<a class="material-icons w3-bar-item w3-button">search</a>-->
+
+		<form style="display:none">
+		<input placeholder="Search" style="margin-top:5px; border-radius:5px">
+		<button style="width:100px; border-radius: 5px;">Submit</button>
+		</form>
+	    
+            <div id="menubar">
+
+            <div class="w3-dropdown-hover" style="display:none";>
+                <button id="alat" class="w3-button" style="background-color:yellow">Pemadam</button>
+
+                <div  class="w3-dropdown-content w3-bar-block w3-card-4" >
+                    <a id="aFire" href="#" onclick="alatFire()" class="w3-bar-item w3-button">Pemadam</a>
+                    <a id="aLSA" href="#" onclick="alatLSA()" class="w3-bar-item w3-button">LSA</a>
+                    <a id="aNav" href="#" onclick="alatNav()" class="w3-bar-item w3-button">Navigasi</a>      
+                    <a id="aRadio" href="#" onclick="alatRadio()" class="w3-bar-item w3-button">Radio</a>
+
+		</div>
+            </div>
+
+            <div class="w3-dropdown-hover" style="display:none";>
+                <button id="kapal" class="w3-button">Kapal Penumpang</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a id="kapal1" href="#" onclick="kapalP()" class="w3-bar-item w3-button">Kapal Penumpang</a>
+                    <a id="kapal2" href="#" onclick="kapalNp()" class="w3-bar-item w3-button">Kapal Non-Penumpang</a>
+                    <a id="kapal3" href="#" onclick="kapalI()" class="w3-bar-item w3-button">Kapal Penangkap Ikan</a>
+                </div>
+            </div>
+            </div>
+        
+  
+       </div>
+	
+
+
+    </div>
+
+
+<div style="margin-top:40px">    
+
+
+
+
+
+<div class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-orange" style="display:none; height:90%" id="mySidebar"> <!--teal-->
+  <!--<button class="w3-bar-item w3-button w3-large w3-red" style="text-align: right"
+  onclick="w3_close()"> <i class="fa fa-angle-double-left" ></i></button>-->
+	
+
+<form name="myFormItem">
+		<div class="w3-bar-item  w3-teal" style="width:100%; ">
+
+                Bagian:<br><select  class="input" name="jenisAlat" onchange="jenisAlatFunc()">
+      			<option value="1">Pemadam</option>
+      			<option value="2">LSA</option>
+      			<option value="3">Navigasi</option>
+      			<option value="4">Radio</option>
+      			
+    		</select> <br>
+		</div>
+</form>
+
+
+        <form name="myForm" style="margin-left:15px; ">
+
+	
+		<br>
+                Tipe Kapal:<br><select  class="input" name="tipeKapal" onchange="tipeKapalFunc()" >
+      			<option value="1">Penumpang</option>
+      			<option value="2">Non-Penumpang</option>
+      			<option value="3">Penangkap Ikan</option>
+      			
+    		</select>  
+            <br><br> 
+
+
+            Daerah Pelayaran:<br><select   class="input" name="daerahPel" onchange="daerahPelFunc()" >
+      			<option value="0">Internasional</option>
+      			<option selected="selected" value="1">Kwsn. Indonesia</option>
+      			<option value="2">Lokal</option>
+      			<option value="3">Terbatas</option>
+      			<option value="4">Pelabuhan</option>
+      			<option value="5">Daratan</option>
+    		</select>  
+            <br><br> 
+
+	    <div style="display:none">	
+            Daerah Pelayaran:<br>
+
+<div style="position: float;display: inline-block; "  class="dropdown" >  
+    <a id="daerah" href="javascript:void(0)" class="dropbtn" style="color:blue; background-color:pink; ">Kawasan Indonesia</a>
+
+    <div class="dropdown-content">
+      <a  id="daerah1" href="#" onclick="daerahP0()">Internasional</a>
+      <a  id="daerah1" href="#" onclick="daerahP1()">Kawasan Indonesia</a>
+      <a id="daerah2" href="#" onclick="daerahP2()">Lokal</a>
+      <a id="daerah3" href="#" onclick="daerahP3()">Terbatas</a>
+      <a id="daerah4" href="#" onclick="daerahP4()">Pelabuhan</a>
+      <a id="daerah5" href="#" onclick="daerahP5()">Perairan Daratan</a>
+    </div>
+</div>
+            <br><br>
+	    </div>
+
+	    <div id="displayinputGT" >   
+            GT Kapal<br><input class="input"type="number" name="gtKapal" onkeyup="hasil()" onchange="hasil()"><br><br>
+	    </div>
+
+	    <div id="displayinputNPassgr" >
+            Jumlah Penumpang<br><input  class="input" type="number" name="nPassgr" onkeyup="hasil()" onchange="hasil()"><br><br>
+	    </div>
+
+	    <div id="displayinputL" >
+            Panjang Kapal (m)<br><input class="input" type="number" name="panjangKapal" onkeyup="hasil()" onchange="hasil()"><br><br>
+	    </div>
+
+	    <div id="displayinputkWMesin" >
+            kW Mesin Induk<br><input class="input" type="number" name="kwMesin" onkeyup="hasil()" onchange="hasil()"><br><br>
+	    </div>
+
+	    <div id="displayinputkWBoiler" >
+            kW Boiler (jika ada)<br><input class="input" type="number" name="kwBoiler" onkeyup="hasil()" onchange="hasil()"><br><br>
+	    </div>
+
+	    <div id="displayinputAreaRadio" >
+            Area Radio<br><select id="id_selectAreaRadio"  class="input" name="areaRadio" onchange="hasil()" >
+      			<option id="A123[1]" value="1">A1</option>
+      			<option id="A123[2]" value="2">A1+A2</option>
+      			<option id="A123[3]" value="3">A1+A2+A3</option>
+    		</select>  
+            <br><br>
+
+		    
+	    </div>
+
+        </form>
+
+<div style="text-align:center";>	    
+<button  style="width:100px; border-radius: 5px;" onclick="w3_close()">OK</button><br><br>
+            <br><br>	
+</div>    
+
+    </div>
+    
+
+    <div id="main">
+
+<div class="w3-white">
+  <!--<button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>-->
+
+    <!--<img src="Kapal.jpg" alt="ship" style="width:80%; display: block; margin:auto">-->
+
+        <div class="w3-container">
+
+            	    
+	    <h3 style="text-align: center; font-weight: bold;"><img src="LOGO BKI.png" alt="ship" style="width:55px; float:left; margin:auto"><img src="Logo Garuda.png" alt="ship" style="width:75px; float:right; margin:auto">Non Convention Vessel Standard (NCVS) </h3>
+
+	    <p id="judulAlat" style="text-align: center; font-weight: bold;">Persyaratan Pemadam Kebakaran</p>
+	    <!--<p style="text-align: center;"> Biro Klasifikasi Indonesia </p>-->
+	    <hr style="border-width: 5px; border-color:green ">
+
+
+
+            <p id="judulHasil"></p>
+
+
+
+            <p id="demo"></p>
+  
+	    <hr>
+<!--<button  style="width:100px; border-radius: 5px;" onclick="cetak()">OK</button><br><br>-->
+
+	    <p style="font-size:10px"><i><b><img src="https://cdn.rawgit.com/wasito/javascript/d394b047/LOGO%20BKI.png" alt="ship" style="width:10px; margin:auto"> Disclaimer <img src="https://cdn.rawgit.com/wasito/javascript/d394b047/LOGO%20BKI.png" alt="ship" style="width:10px; margin:auto"></b> Meskipun semua upaya yang memungkinkan telah dilakukan untuk memastikan kebenaran dan kelengkapan Informasi yang terdapat dalam Layanan ini, BKI atau yang dikenal sebagai PT. Biro Klasifikasi Indonesia (Persero) tidak bertanggung jawab atas kesalahan atau kelalaian yang dibuat di sini, tidak juga bertanggung jawab atas tindakan yang diambil oleh pihak manapun sebagai hasil informasi yang diperoleh dari Layanan ini. Untuk saran dan masukan silakan email ke wasito@bki.co.id, henry.kurniawan@bki.co.id, laode.ichsan@bki.co.id</i></p> 
+        </div>
+
+    </div>
+
+</div><!--akhir div id="cekMasuk" style="display:none";-->
+
+
+
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script.js"> </script> <!-- ini sudah termasuk fire utk kapal penumpang 1A tetapi juga berlaku utk semua pelayaran -->
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Lsa1A.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Lsa1B.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Lsa1C.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Lsa1D.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Lsa1E.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Lsa2A.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Lsa2B.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Lsa2C.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Lsa2D.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Lsa2E.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Lsa2I.js"></script>
+
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Nav1A.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Nav1B.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Nav1C.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Nav1D.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Nav1E.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Nav2A.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Nav2B.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Nav2C.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Nav2D.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Nav2E.js"></script>
+
+
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Radio1A.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Radio1B.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Radio1C.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Radio1D.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Radio1E.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Radio2A.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Radio2B.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Radio2C.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Radio2D.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Radio2E.js"></script>
+
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Pemadam2A.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Pemadam2B.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Pemadam2C.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/759784b2/Script_Pemadam2D.js"></script>
+    <script src="https://cdn.rawgit.com/wasito/javascript/6bfac814/Script_Pemadam2E.js" type="text/javascript"></script>
+
+
+
+
+    <script src="https://cdn.rawgit.com/wasito/javascript/e8beecf2/Script_Sementara.js"></script>
+
+
+
+
+
+
+    <script>
+        function w3_open() {
+	    document.getElementById("bukaSide").style.display = 'none';
+	    document.getElementById("tutupSide").style.display = 'block';
+            document.getElementById("main").style.marginLeft = "200px";
+            document.getElementById("mySidebar").style.width = "200px";
+            document.getElementById("menubar").style.marginLeft = "200px";
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("openNav").style.display = 'none';
+	    return "hasil()";
+        }
+        function w3_close() {
+	    document.getElementById("bukaSide").style.display = 'block';
+	    document.getElementById("tutupSide").style.display = 'none';
+            document.getElementById("main").style.marginLeft = "0%";
+            document.getElementById("menubar").style.marginLeft = "0px";
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("openNav").style.display = "inline-block";
+	    return "hasil()";
+
+
+        }
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+ 
+
+
+</div>
+</body>
+</html>
